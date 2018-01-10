@@ -7,27 +7,28 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   }
   console.log('Connected to MongoDB server');
 
-  // db.collection('Todos').find({
-  //   _id: new ObjectID('57bb36afb3b6a3801d8c479d')
-  // }).toArray().then((docs) => {
-  //   console.log('Todos');
-  //   console.log(JSON.stringify(docs, undefined, 2));
-  // }, (err) => {
-  //   console.log('Unable to fetch todos', err);
+  // deleteMany
+  // db.collection('Todos').deleteMany({text: 'Eat lunch'}).then((result) => {
+  //   console.log(result);
   // });
 
-  // db.collection('Todos').find().count().then((count) => {
-  //   console.log(`Todos count: ${count}`);
-  // }, (err) => {
-  //   console.log('Unable to fetch todos', err);
+  // deleteOne
+  // db.collection('Todos').deleteOne({text: 'Eat lunch'}).then((result) => {
+  //   console.log(result);
   // });
 
-  db.collection('Users').find({name: 'Andrew'}).toArray().then((docs) => {
-    console.log(JSON.stringify(docs, undefined, 2));
+  // findOneAndDelete
+  // db.collection('Todos').findOneAndDelete({completed: false}).then((result) => {
+  //   console.log(result);
+  // });
+
+  // db.collection('Users').deleteMany({name: 'Andrew'});
+
+  db.collection('Users').findOneAndDelete({
+    _id: new ObjectID("57ac8d47878a299e5dc21bc8")
+  }).then((results) => {
+    console.log(JSON.stringify(results, undefined, 2));
   });
 
   // db.close();
 });
-
-// connect mongod cli : ./mongod --dbpath ~/mongo-data
-// launch file to execute cli : node file path
