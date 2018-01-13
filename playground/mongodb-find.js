@@ -29,5 +29,5 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   // db.close();
 });
 
-// connect mongod cli : ./mongod --dbpath ~/mongo-data
+// connect mongod cli within user/mongo/bin : ./mongod --dbpath ~/mongo-data
 // launch file to execute cli : node file path
